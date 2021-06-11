@@ -106,7 +106,7 @@ class CurlFactory implements CurlFactoryInterface
             self::invokeStats($easy);
         }
 
-        if (!$easy->response || \CURLE_OK !== $easy->errno) {
+        if (!$easy->response || /*\CURLE_OK !==*/ $easy->errno) {
             return self::finishError($handler, $easy, $factory);
         }
 
