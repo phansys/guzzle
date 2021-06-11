@@ -172,7 +172,7 @@ class Server
 
         if (!self::isListening()) {
             \exec('node ' . __DIR__ . '/server.js '
-                . self::$port . ' >> /tmp/server.log 2>&1 &');
+                . self::$port . ' >> /tmp/server.log &');
             self::wait();
         }
 
