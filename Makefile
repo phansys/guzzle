@@ -31,7 +31,7 @@ stop-server:
 	) && [ -n "$$PID" ] && kill $$PID || true
 
 test: start-server
-	vendor/bin/phpunit
+	vendor/bin/phpunit --debug -vvv
 	$(MAKE) stop-server
 
 coverage: start-server

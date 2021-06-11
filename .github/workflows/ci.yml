@@ -2,8 +2,6 @@ name: CI
 
 on:
   push:
-    branches:
-      - master
   pull_request:
 
 jobs:
@@ -42,15 +40,8 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        php: ['7.2', '7.3', '7.4', '8.0']
+        php: ['8.0']
         psr7: ['^1.7']
-        include:
-          - php: '7.4'
-            psr7: '^1.7@dev'
-          - php: '7.4'
-            psr7: '^2.0@dev'
-          - php: '7.4'
-            psr7: '^2.0@beta'
 
     steps:
       - name: Set up PHP
@@ -85,7 +76,7 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        php: ['7.2', '7.3', '7.4', '8.0']
+        php: ['8.0']
 
     steps:
       - name: Set up PHP
