@@ -15,8 +15,8 @@ help:
 	@echo "  static-codestyle-check         to run php-cs-fixer on the codebase"
 
 start-server: stop-server
-	node tests/server.js &> /dev/null &
-	./vendor/bin/http_test_server &> /dev/null &
+	node tests/server.js &
+	./vendor/bin/http_test_server &
 
 stop-server:
 	@PID=$(shell ps axo pid,command \
@@ -31,7 +31,7 @@ stop-server:
 	) && [ -n "$$PID" ] && kill $$PID || true
 
 test: start-server
-	vendor/bin/phpunit --debug -vvv 1>&1 2>&1
+	vendor/bin/phpunit --debug -vvv
 	$(MAKE) stop-server
 
 coverage: start-server
